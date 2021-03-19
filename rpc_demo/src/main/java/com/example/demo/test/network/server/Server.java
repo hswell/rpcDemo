@@ -1,11 +1,11 @@
-package com.example.demo.network.server;
+package com.example.demo.test.network.server;
 
-import com.example.demo.config.LocalServerInfo;
-import com.example.demo.network.codec.Decoder;
-import com.example.demo.network.codec.Encoder;
-import com.example.demo.network.msg.Request;
-import com.example.demo.network.msg.Response;
-import com.example.demo.util.NetUtil;
+import com.example.demo.test.config.LocalServerInfo;
+import com.example.demo.test.network.codec.Decoder;
+import com.example.demo.test.network.codec.Encoder;
+import com.example.demo.test.network.msg.Request;
+import com.example.demo.test.network.msg.Response;
+import com.example.demo.test.util.NetUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -62,13 +62,15 @@ public class Server implements Runnable {
               初始化服务端可连接队列,指定了队列的大小128
               绑定客户端连接时候触发操作
              */
+
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
+
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            //SocketChannel的编码器 解码器 以及业务处理，这里的编码解码我用的Protostuff 这个小考虑特vi额好
+                            //ch的编码器 解码器 以及业务处理
                             ch.pipeline().addLast(new Decoder(Request.class)
                                     , new Encoder(Response.class)
                                     , new ServerHandler(applicationContext));

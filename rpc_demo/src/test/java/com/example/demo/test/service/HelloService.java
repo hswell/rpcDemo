@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.test.service;
 
 /**
  * http://www.demo.org

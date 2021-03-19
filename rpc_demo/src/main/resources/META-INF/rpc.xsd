@@ -13,12 +13,12 @@
                 <xsd:extension base="beans:identifiedType">
                     <xsd:attribute name="host" type="xsd:string">
                         <xsd:annotation>
-                            <xsd:documentation><![CDATA[ 栈台地点 ]]></xsd:documentation>
+                            <xsd:documentation><![CDATA[ host地址 ]]></xsd:documentation>
                         </xsd:annotation>
                     </xsd:attribute>
                     <xsd:attribute name="port" type="xsd:string">
                         <xsd:annotation>
-                            <xsd:documentation><![CDATA[ 栈台岸口  ]]></xsd:documentation>
+                            <xsd:documentation><![CDATA[ 端口  ]]></xsd:documentation>
                         </xsd:annotation>
                     </xsd:attribute>
                 </xsd:extension>

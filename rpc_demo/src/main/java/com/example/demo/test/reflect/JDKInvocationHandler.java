@@ -1,8 +1,8 @@
-package com.example.demo.reflect;
+package com.example.demo.test.reflect;
 
-import com.example.demo.network.future.SyncWrite;
-import com.example.demo.network.msg.Request;
-import com.example.demo.network.msg.Response;
+import com.example.demo.test.network.future.SyncWrite;
+import com.example.demo.test.network.msg.Request;
+import com.example.demo.test.network.msg.Response;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -19,7 +19,6 @@ public class JDKInvocationHandler implements InvocationHandler {
     public JDKInvocationHandler(Request request) {
         this.request = request;
     }
-
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String methodName = method.getName();

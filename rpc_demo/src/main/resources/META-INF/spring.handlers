@@ -1,1 +1,1 @@
-http\://rpc.demo.org/schema/rpc=com.example.demo.config.spring.MyNamespaceHandler
+http\://rpc.demo.org/schema/rpc=com.example.demo.test.config.spring.MyNamespaceHandler

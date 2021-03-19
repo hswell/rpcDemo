@@ -1,14 +1,11 @@
-package com.example.demo.network.server;
-import com.example.demo.network.msg.Request;
-import com.example.demo.network.msg.Response;
-import com.example.demo.util.ClassLoaderUtils;
-import io.netty.channel.ChannelHandlerAdapter;
+package com.example.demo.test.network.server;
+import com.example.demo.test.network.msg.Request;
+import com.example.demo.test.network.msg.Response;
+import com.example.demo.test.util.ClassLoaderUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import sun.misc.ClassLoaderUtil;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -36,7 +33,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
             Class<?> classType = ClassLoaderUtils.forName(request.getNozzle());
             Method addMethod = classType.getMethod(request.getMethodName(), request.getParamTypes());
             Object objectBean = applicationContext.getBean(request.getRef());
-            //通过反射的方式拿到bean代理实现真实的类
+            //通过反射的方式拿到bena代理实现真实的类
             Object result = addMethod.invoke(objectBean, request.getArgs());
             Response response=new Response();
             response.setRequestId(request.getRequestId());
